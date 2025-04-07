@@ -11,19 +11,23 @@ utils.unpackLove = function(t, _i)
 
     return t[i], utils.unpackLove(t, i + 1)
 end
-
 -- Round 'n' to 'm'
 utils.roundTo = function(n, m)
     local div = n / m
     return (div > 0) and math.floor(div) * m or math.ceil(div) * m
 end
-
 -- Adds 'm' to 'n' without 'n' getting bigger than 'min' or 'max':
 utils.addInInterval = function(n, m, min, max)
     local sum = n + m
     if     sum > max then return max
     elseif sum < min then return min
     else   return sum end
+end
+-- Limit 'n' to 'max' and 'min', very similar to ```addInInterval()```.
+utils.limitTo = function(n, min, max)
+    if     n > max then return max
+    elseif n < min then return min
+    else   return n end 
 end
 
 utils.restartBattle = function(enemyfunc)

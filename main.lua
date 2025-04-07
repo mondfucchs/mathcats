@@ -1,9 +1,9 @@
 --> external libraries:
     local love = require("love")
     local u    = require("utils")
-    local m    = require("mathmaker")
-    local c    = require("clock")
-    local t    = require("triggers")
+    local m    = require("tools.mathmaker")
+    local c    = require("tools.clock")
+    local t    = require("tools.triggers")
 
 --> external lists:
     local enemies = require("assets.lists.enemyList")

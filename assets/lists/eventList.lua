@@ -1,6 +1,6 @@
 local love = require("love")
 local u    = require("utils")
-local c    = require("clock")
+local c    = require("tools.clock")
 
 local eventList = {}
 

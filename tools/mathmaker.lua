@@ -58,9 +58,11 @@ mathmaker.createProblem = function(operation_max)
         }
     }
 
-    local o = math.random(1, operation_max)
-    local n = math.random(1, 50)
-    local m = math.random(1, 50)
+    local o = 3
+    local maxNumber = 50
+    if o == 3 then maxNumber = 10 end
+    local n = math.random(1, maxNumber)
+    local m = math.random(1, maxNumber)
 
     local answer, content = operations[o].func(n, m)
     local posPoints, negPoints = operations[o].points.pos, operations[o].points.neg
@@ -125,8 +127,8 @@ mathmaker.deepProblem = function(answer, content, posPoints, negPoints, deepness
     local _answer, _content, _posPoints, _negPoints, _deepness = answer, content, posPoints, negPoints, deepness
 
     for i = 1, _deepness do
-        local a = math.random(1, 50)
         local o = math.random(1, operation_max)
+        local a = math.random(1, (o == 3) and 10 or 50)
 
         _answer, _content = appendingOperations[o].func(_answer, _content, a)
         _posPoints, _negPoints = _posPoints + appendingOperations[o].points.pos, _negPoints + appendingOperations[o].points.neg
